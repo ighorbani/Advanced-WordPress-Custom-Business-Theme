@@ -7,7 +7,7 @@
     <div class="items-flx">
 
         <?php
-        $engines = new WP_Query(['post_type' => 'product', 'tax_query' => ['taxonomy' => 'engines'], 'post_status' => 'publish', 'order' => 'DESC', 'posts_per_page' => 3]);
+        $engines = new WP_Query(['post_type' => 'product', 'tax_query' => [['taxonomy' => 'products-category', 'field' => 'slug', 'terms' => 'engines']], 'post_status' => 'publish', 'order' => 'DESC', 'posts_per_page' => 3]);
         while ($engines->have_posts()) {
             $engines->the_post();
             $img_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
@@ -39,7 +39,7 @@
     <div class="items-flx">
 
         <?php
-        $oils = new WP_Query(['post_type' => 'product', 'tax_query' => ['taxonomy' => 'oils'], 'post_status' => 'publish', 'order' => 'DESC', 'posts_per_page' => 3]);
+        $oils = new WP_Query(['post_type' => 'product', 'tax_query' => [['taxonomy' => 'products-category', 'field' => 'slug', 'terms' => 'oils']], 'post_status' => 'publish', 'order' => 'DESC', 'posts_per_page' => 3]);
         while ($oils->have_posts()) {
             $oils->the_post();
             $img_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
